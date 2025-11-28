@@ -4,6 +4,33 @@
 
 @layer base {
 	body {
-		@apply bg-gray-50 text-gray-900;
+		@apply bg-tlachtace-beige text-gray-900;
+		font-family: Arial, sans-serif;
+	}
+}
+
+@layer components {
+	.tlachtace-header {
+		@apply bg-tlachtace-red text-white shadow-md;
+	}
+
+	.tlachtace-nav {
+		@apply bg-tlachtace-gray-nav text-white;
+	}
+
+	.tlachtace-sidebar {
+		@apply bg-tlachtace-brown text-white rounded;
+	}
+
+	.tlachtace-content {
+		@apply bg-white border border-gray-300 rounded shadow-sm;
+	}
+
+	.tlachtace-button {
+		@apply bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded transition-colors;
+	}
+
+	.tlachtace-button-secondary {
+		@apply bg-tlachtace-brown hover:bg-tlachtace-brown-light text-white font-medium px-4 py-2 rounded transition-colors;
 	}
 }

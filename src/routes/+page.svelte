@@ -3,45 +3,49 @@
 </script>
 
 <svelte:head>
-	<title>MiniBB - Fóra</title>
+	<title>Tlachtační trachtace - Fóra</title>
 </svelte:head>
 
-<div class="space-y-6">
-	<div class="bg-white rounded-lg shadow-md p-6">
-		<h1 class="text-3xl font-bold mb-2">Vítejte na MiniBB</h1>
-		<p class="text-gray-600">Moderní diskuzní fórum postavené na SvelteKit a Supabase</p>
+<div class="space-y-4">
+	<div class="tlachtace-sidebar p-4">
+		<h2 class="font-bold text-lg mb-2">Tlachtace vás vítá</h2>
+		<p class="text-sm leading-relaxed">
+			Tlachtační trachtace, diskuzní prostor "Tlachtace", je diskuzní fórum určené těm, kteří rádi
+			rozebírají své životní zážitky, jak z médií sociálních složek, tak i navozujících filozofií po
+			nesčetných mylenách, co nabízejí úskalí poznání či třebas žeby Internet.
+		</p>
 	</div>
 
-	<div class="bg-white rounded-lg shadow-md overflow-hidden">
-		<div class="bg-gray-100 px-6 py-4 border-b">
-			<h2 class="text-xl font-semibold">Fóra</h2>
+	<div class="tlachtace-content overflow-hidden">
+		<div class="bg-tlachtace-brown text-white px-6 py-3 border-b">
+			<h2 class="font-bold">Fóra</h2>
 		</div>
 
-		<div class="divide-y">
+		<div class="divide-y divide-gray-200">
 			{#each data.forums as forum}
 				<a
 					href="/forum/{forum.id}"
-					class="block px-6 py-5 hover:bg-gray-50 transition-colors"
+					class="block px-6 py-4 hover:bg-gray-50 transition-colors"
 				>
 					<div class="flex items-start justify-between">
 						<div class="flex-1">
-							<h3 class="text-lg font-semibold text-blue-600 mb-1">{forum.name}</h3>
-							<p class="text-gray-600 text-sm mb-2">{forum.description}</p>
+							<h3 class="text-base font-bold text-tlachtace-red mb-1">{forum.name}</h3>
+							<p class="text-gray-700 text-sm mb-2">{forum.description}</p>
 
 							{#if forum.latest_thread}
-								<div class="text-sm text-gray-500">
-									Poslední příspěvek:
+								<div class="text-xs text-gray-600">
+									Poslední:
 									<span class="font-medium">{forum.latest_thread.title}</span>
-									od
+									•
 									<span class="font-medium">{forum.latest_thread.author?.username}</span>
 								</div>
 							{/if}
 						</div>
 
-						<div class="text-right ml-4">
-							<div class="text-2xl font-bold text-blue-600">{forum.thread_count}</div>
-							<div class="text-sm text-gray-500">témat</div>
-							<div class="text-sm text-gray-500 mt-1">{forum.post_count} příspěvků</div>
+						<div class="text-right ml-4 min-w-[80px]">
+							<div class="text-xl font-bold text-tlachtace-brown">{forum.thread_count}</div>
+							<div class="text-xs text-gray-600">témat</div>
+							<div class="text-xs text-gray-600 mt-1">{forum.post_count} příspěvků</div>
 						</div>
 					</div>
 				</a>
@@ -54,24 +58,26 @@
 	</div>
 
 	{#if !data.session}
-		<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
-			<h3 class="text-lg font-semibold mb-2">Připojte se k diskuzi!</h3>
-			<p class="text-gray-700 mb-4">
-				Pro vytváření témat a příspěvků se prosím přihlaste nebo zaregistrujte.
-			</p>
-			<div class="flex gap-4">
-				<a
-					href="/auth/login"
-					class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-				>
-					Přihlásit se
-				</a>
-				<a
-					href="/auth/register"
-					class="bg-white text-blue-600 border border-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition-colors"
-				>
-					Registrovat se
-				</a>
+		<div class="tlachtace-content p-6">
+			<div class="tlachtace-sidebar p-4 mb-4">
+				<h3 class="font-bold mb-2">Co se tu dozvíme?</h3>
+				<ul class="text-sm space-y-1 list-disc list-inside">
+					<li>proč je moderní net na webu Wordpress, dřevěplety a kostrbáté co zíráte, když je nemilé,</li>
+					<li>kde nejsou hostingři na neteipiti, výjma těchy nejlepšího poskytovateje,</li>
+					<li>co je to tlachtaná řeřizna a jaká pravidla sem,</li>
+					<li>proč jezdí vlaky po kolejích, policejté tramvají stahávali a neslyšeli jejich vlak v městech,</li>
+					<li>názory trojsmrčsické o Chrustačově, přispívá komunistů diskuze v nářečích.</li>
+				</ul>
+			</div>
+			<div class="text-center">
+				<h3 class="text-lg font-semibold mb-2">Připojte se k diskuzi!</h3>
+				<p class="text-gray-700 mb-4">
+					Pro vytváření témat a příspěvků se prosím přihlaste nebo zaregistrujte.
+				</p>
+				<div class="flex gap-4 justify-center">
+					<a href="/auth/login" class="tlachtace-button">Přihlásit se</a>
+					<a href="/auth/register" class="tlachtace-button-secondary">Registrovat se</a>
+				</div>
 			</div>
 		</div>
 	{/if}
