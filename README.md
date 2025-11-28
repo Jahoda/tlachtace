@@ -22,8 +22,10 @@ Moderní implementace miniBB (minimalistické bulletin board) postavená na Svel
 
 ### 1. Instalace závislostí
 
+Projekt používá **pnpm** jako package manager.
+
 ```bash
-npm install
+pnpm install
 ```
 
 ### 2. Nastavení Supabase
@@ -41,7 +43,7 @@ npm install
 ### 3. Spuštění vývojového serveru
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 Aplikace běží na `http://localhost:5173`
@@ -49,8 +51,8 @@ Aplikace běží na `http://localhost:5173`
 ## Build pro produkci
 
 ```bash
-npm run build
-npm run preview
+pnpm build
+pnpm preview
 ```
 
 ## Struktura projektu

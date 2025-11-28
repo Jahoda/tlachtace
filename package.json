@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Modern miniBB clone built with SvelteKit and Supabase",
 	"private": true,
+	"packageManager": "pnpm@8.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
